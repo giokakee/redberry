@@ -2,12 +2,14 @@ import '../style/second.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import LinkCircles from '../linkCircles';
+import { connect } from 'react-redux';
+import { add, deleteSkill } from '../reducers/skillsReducer';
 
 
-const Second = () => {
+const Second = ({initialSkills, addSkill, deleteSkill}) => {
     let [skills, setSkills] = useState([])
     let [chosenSkills, setChosenSkills] = useState({
-        skill: '',
+        title: '',
         experience: ''
     })
 
@@ -23,6 +25,8 @@ const Second = () => {
         getSkills()
     }, [])
 
+
+console.log(initialSkills)
        return(
             <div className="container">
                 <div className="formDiv">
@@ -30,7 +34,7 @@ const Second = () => {
                         <p>Tell us about your skills</p>
                     </div>
                     <div className="form">
-                        <select defaultValue={'skills'} onChange={({target}) => setChosenSkills({skill: target.value, experience: chosenSkills.experience})}>
+                        <select defaultValue={'skills'} onChange={({target}) => setChosenSkills({title: target.value, experience: chosenSkills.experience})}>
                             <option  disabled value={'skills'}>skills</option>
                             {skills.map(skills => {
                                 return(
@@ -38,19 +42,18 @@ const Second = () => {
                                         )
                                     })}
                             </select>
-                        <input onChange={({target}) => setChosenSkills({skill: chosenSkills.skill, experience: target.value})}  type='text' placeholder="Experience Duration in Years" />
+                        <input onChange={({target}) => setChosenSkills({title: chosenSkills.title, experience: target.value})}  type='text' placeholder="Experience Duration in Years" />
                         <div className='buttonDiv'>
-                            <button onClick={() => console.log(chosenSkills)}>Add Programming Language</button>
+                            <button onClick={() => addSkill({data: chosenSkills})}>Add Programming Language</button>
                         </div>
                     </div>
-                    <div>
-                        {skills.map(mp => {
-                            console.log(mp)
+                    <div style={{marginTop: '57px', marginBottom: '157px'}}>
+                        {initialSkills.map(mp => {
                             return(
-                                <div key={mp.id} className='skillsDiv'>
+                                <div key={mp.title} className='skillsDiv'>
                                     <p>{mp.title}</p>
-                                    <p> experience of year 2</p>
-                                    <button>test</button>
+                                    <p style={{marginRight: '87px'}}>experience of year  {mp.experience}</p>
+                                    <div onClick={() => deleteSkill(mp.id)}></div>
                                 </div>
                             )
                         })}
@@ -71,7 +74,25 @@ const Second = () => {
             </div>
         )
     }
+
+
+    const mapStateToProps = (state) => {
+        return {
+            initialSkills: state.skillsReducer
+        }
+    }
+
+    const mapDispatchToPtops = (dispatch) => {
+        return {
+            addSkill: (data) => {
+                dispatch(add(data))
+            },
+            deleteSkill: (id) => {
+                dispatch(deleteSkill(id))
+            } 
+        }
+    }
     
 
 
-    export default Second
+    export default connect(mapStateToProps, mapDispatchToPtops)(Second)

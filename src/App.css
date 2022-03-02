@@ -40,7 +40,6 @@ body::-webkit-scrollbar {
 
 .icon{
   transition: 0.5s;
-  fill: #FE3B1F
 }
 
 .icon:hover{
@@ -51,7 +50,8 @@ body::-webkit-scrollbar {
 
 .title{
   width: 717px;
-} p{
+} 
+.title p{
   font-family: Rowdies;
   font-style: normal;
   font-weight: normal;

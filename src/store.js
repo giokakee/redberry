@@ -1,10 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { testReducer } from "./reducers/testReducer";
+import skillsReducer from "./reducers/skillsReducer";
+
+
+const reducers = combineReducers({
+    skillsReducer
+})
 
 const store = createStore(
-    testReducer,
+    reducers,
     composeWithDevTools(
         applyMiddleware(thunk)
     )

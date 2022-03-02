@@ -29,7 +29,7 @@ let valid = name.length > 2 && lastName.length > 2 && regexMobile.test(number) &
                         <input onChange={({target}) => setNumber(target.value)} type='text' placeholder="+995 _ _ _ _"/>
                     </div>
                     <div className='' >
-                        <LinkCircles current={1} valid={valid} />
+                        <LinkCircles current={1}  valid={valid} />
                     </div>
                 </div>
                 <div className="infoDiv">

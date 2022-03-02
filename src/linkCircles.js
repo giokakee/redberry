@@ -18,7 +18,7 @@ const LinkCircles = ({current, valid}) => {
         marginBottom: '157px'
     }
 
-
+    
 
 
     return(
@@ -27,19 +27,19 @@ const LinkCircles = ({current, valid}) => {
                 <LeftArrow />
             </Link>
             <Link to='/1'>
-                <Circle />
+                {current >= 1 ? <Circle fill='#FE3B1F' /> : <Circle fill='#e9b2a9' />}
             </Link>
             <Link to='/2'>
-                <Circle />
+                 {current >=2 ? <Circle fill='#FE3B1F' /> : <Circle fill='#e9b2a9' />}
             </Link>
             <Link to='/3'>
-                <Circle />
-            </Link>
+                 {current >= 3 ? <Circle fill='#FE3B1F' /> : <Circle fill='#e9b2a9' />}
+             </Link>
             <Link to='/4'>
-                <Circle />
+                 {current >=4 ? <Circle fill='#FE3B1F' /> : <Circle fill='#e9b2a9' />}
             </Link>
             <Link to='/5'>
-                <Circle />
+                  {current >= 5 ? <Circle fill='#FE3B1F' /> : <Circle fill='#e9b2a9' />}
             </Link>
             <Link to={`/${valid ? current < 5 ? current + 1 : '': current}`}>
                 <RightArrow />
