@@ -1,0 +1,59 @@
+
+.form select{
+    margin-bottom: 37px;
+    border-radius: 5px;
+    font-family: Montserrat, sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    color: #454545;
+    outline: none;
+    padding: 17px 203px 13px 57px;
+    
+    
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("../svg/arrow.svg") 95% / 3% no-repeat rgb(255, 255, 255);
+    
+    transition: 0.5s ease-in-out;
+}
+
+
+.form button {
+    width: 201px;
+    height: 32px;
+    background-color: #FE3B1F;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+
+.buttonDiv{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.skillsDiv{
+    width: 447px;
+    height: 47px;
+    font-size: 10px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 37px;
+    padding: 13px;
+}
+
+.skillsDiv p{
+    font-size: 10px;
+}
