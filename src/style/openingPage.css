@@ -1,0 +1,44 @@
+.openingPage{
+    background: url('../svg/openingBackground.svg') 100% / 100% black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 123px;
+}
+
+
+.welcomeRocketeer{
+    background: url('../svg/welcomeRocketeer.svg') 100% / 100% no-repeat;
+    width: 1090px;
+    height: 212px;
+}
+
+.startQuestions{
+    background: url('../svg/startQuestions.svg') 100% / 100% no-repeat;
+    height: 79px;
+    width: 395px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.openingPage p,
+.startQuestions p{
+    color: white;
+    font-size: 25px;
+    line-height: 29px;
+    font-weight: 400;
+}
+
+
+
+.cosmonaut{
+    background: url('../svg/cosmonaut.svg') 100% / 100% no-repeat;
+    height: 373px;
+    width: 409px;
+}
+
+

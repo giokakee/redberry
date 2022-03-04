@@ -26,7 +26,12 @@ const Second = ({initialSkills, addSkill, deleteSkill}) => {
     }, [])
 
 
-console.log(initialSkills)
+
+    const addSkillToList = () => {
+        let {title, experience} = chosenSkills
+        title.length && experience.length ? addSkill({data: chosenSkills}) : alert('Inputs are required')
+    }
+
        return(
             <div className="container">
                 <div className="formDiv">
@@ -44,13 +49,13 @@ console.log(initialSkills)
                             </select>
                         <input onChange={({target}) => setChosenSkills({title: chosenSkills.title, experience: target.value})}  type='text' placeholder="Experience Duration in Years" />
                         <div className='buttonDiv'>
-                            <button onClick={() => addSkill({data: chosenSkills})}>Add Programming Language</button>
+                            <button onClick={() => addSkillToList()}>Add Programming Language</button>
                         </div>
                     </div>
                     <div style={{marginTop: '57px', marginBottom: '157px'}}>
                         {initialSkills.map(mp => {
                             return(
-                                <div key={mp.title} className='skillsDiv'>
+                                <div key={mp.id} className='skillsDiv'>
                                     <p>{mp.title}</p>
                                     <p style={{marginRight: '87px'}}>experience of year  {mp.experience}</p>
                                     <div onClick={() => deleteSkill(mp.id)}></div>

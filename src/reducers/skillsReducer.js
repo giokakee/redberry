@@ -7,9 +7,12 @@ let initialSkills = [
 const skillsReducer = (state = initialSkills, action) => {
     switch(action.type){
         case 'add':
-            console.log(action.data)
-            console.log('zimbabu')
-            return [...state, {...action.data, id: state.length +1}]
+            let existedSkill = state.find(s => s.title === action.data.title )
+            if(existedSkill){
+                return state
+            }else{
+                return [...state, {...action.data, id: state.length +1}]
+            }
         case 'delete':
             return state.filter(s => s.id !== action.data)
         default:

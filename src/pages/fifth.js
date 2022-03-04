@@ -1,11 +1,16 @@
-// import '../style/Fifth.css'
-import LinkCircles from '../linkCircles';
+import { useNavigate } from 'react-router-dom'
+import '../style/submitPage.css'
+
 
 
 const Fifth = () => {
+    const navigate = useNavigate()
         return(
-            <div>
-                <h1>thank you</h1>
+            <div className='submitPage'>
+                <div >
+                    <p>Submit</p>
+                </div>
+                <p onClick={() => navigate('/4') } style={{textDecoration: 'underline'}}>go back</p>
             </div>
         )
     }

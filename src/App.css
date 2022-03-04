@@ -22,7 +22,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding:  131px 0px 0px 9px;
+  padding:  61px 0px 0px 9px;
 }
 
 .infoDiv{
@@ -65,6 +65,18 @@ body::-webkit-scrollbar {
 }
 .infoTitle{
   width: 100%;
+}
+.infoTitle p{
+  font-family: Rowdies;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 79px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FE3B1F;
+  justify-content: center;
 }
 
 

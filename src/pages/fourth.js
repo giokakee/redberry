@@ -1,21 +1,49 @@
-// import '../style/Third.css'
+import '../style/fourth.css'
 import LinkCircles from '../linkCircles';
+import { useState } from 'react';
 
 const Third = () => {
+    const [inputs, setInputs] = useState({
+        will_organize_devtalk: '',
+        devtalk_topic: '',
+        something_special: ''
+    })
+
+
+    const submit = (e) => {
+        e.preventDefault()
+
+    }
+console.log(inputs)
+
         return(
             <div className="container">
                 <div className="formDiv">
                     <div className="title">
                         <p>What about you?</p>
                     </div>
-                    <div className="form">
-                        <input type='text' placeholder="Skills" autoComplete='off' />
-                        <input type='text' placeholder="Experience Duration in Years" />
-                        <button>Add Programming Language</button>
-                    </div>
-                    <div>
-                        zimbabue
-                    </div>
+                    <form onSubmit={submit}>
+                        <div style={{marginBottom: '45px'}} className='fourthPageDiv'> 
+                            <p>Would you attend Devtalks and maybe also organize your own?</p>    
+                            <div>
+                                <input type='radio' value={true} name='organize' onChange={({target}) => setInputs({...inputs, will_organize_devtalk: target.value})}/>
+                                <label >Yes</label>
+                            </div>
+                            <div>
+                                <input type='radio' value={''} name='organize' onChange={({target}) => setInputs({...inputs, will_organize_devtalk: target.value})}/>
+                                <label>No</label>
+                            </div>
+                        </div>
+                        <div style={{marginBottom: '35px'}}>
+                            <p>What would you speak about at Devtalk?</p>
+                            <textarea placeholder='I would...' onChange={({target}) => setInputs({...inputs, devtalk_topic: target.value})}  />
+                        </div>  
+                        <div>
+                            <p>Tell us something soecual</p>
+                            <textarea style={{marginBottom: '85px', minHeight: '89px'}} placeholder='I...' onChange={({target}) => setInputs({...inputs, something_special: target.value})} />
+                        </div>  
+                        <button type='submit' style={{display: 'none'}}></button>             
+                    </form>
                     <div className='' >
                        <LinkCircles current={4} />
                     </div>

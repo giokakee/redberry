@@ -1,0 +1,35 @@
+.thirdPageDiv{
+    margin-bottom: 55px;
+}
+.thirdPageDiv label{
+    font-size: 14px;
+    align-items: center;
+    margin-left: 10px;
+}
+.thirdPageDiv div{
+    align-items: center;
+    display: flex;
+    height: 21px;
+}
+
+
+.thirdPageDiv p{
+    font-size: 18px;
+    line-height: 21.94px;
+    height: 100%;
+    align-items: center;
+}
+
+input[type=date]  {
+    width: 455px;
+    height: 55px;
+}
+input[type=date]::-webkit-calendar-picker-indicator {
+    background: url("../svg/calendarPicker.svg") 3% / 100% no-repeat rgb(255, 255, 255);
+    height: 100%;
+    margin-right: 15px;
+}
+
+input[type=date]::-webkit-datetime-edit{
+    margin-left: 20px;
+}

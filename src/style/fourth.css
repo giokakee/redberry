@@ -1,0 +1,28 @@
+textarea {
+    max-width: 535px;
+    height: 122px;
+    min-width: 535px;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 400;
+    transition: 0.5s ease-out;
+    border-radius: 5px;
+}
+
+
+textarea:focus{
+    background-color:#494949 ;
+    color: rgb(255, 255, 255);
+    outline: none;
+}
+textarea:focus::placeholder{
+    color: white;
+}
+
+.fourthPageDiv{
+    height: 119px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

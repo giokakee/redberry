@@ -22,12 +22,13 @@
 
 .form input:active{
     color: rgb(255, 255, 255);
+    outline: none;
 }
 
 .form input:focus{
-    background-color:#6e6e6e ;
+    background-color:#494949 ;
     color: rgb(255, 255, 255);
-
+    outline: none;
 }
 
 .form input:focus::placeholder{

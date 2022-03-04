@@ -1,0 +1,31 @@
+.submitPage{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    background-color: #000;
+}
+
+.submitPage div{
+    background: url('../svg/startQuestions.svg') 100% / 100% no-repeat;
+    width: 395px;
+    height: 79px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submitPage p{
+    font-size: 27px;
+    line-height: 33px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.submitPage div p{
+    font-size: 37px;
+    line-height: 43px;
+    font-weight: 400;
+}
