@@ -1,8 +1,10 @@
 import '../style/third.css'
 import LinkCircles from '../linkCircles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { thirdChange } from '../reducers/validReducer';
+import { connect } from 'react-redux';
 
-const Third = () => {
+const Third = ({thirdChange}) => {
     const [radioInputs, setRadioInputs] = useState({
         work_preference: '',
         had_covid: '',
@@ -11,12 +13,31 @@ const Third = () => {
         vaccinated_at: ''
     })
 
+    useEffect(() => {
+        let initialInputs = window.localStorage.getItem('thirdPage')
+        if(initialInputs){
+            setRadioInputs(JSON.parse(initialInputs))
+        }
+    }, [])
+    let {work_preference, had_covid, vaccinated} = radioInputs
+    
+    let valid = work_preference.length > 1 && had_covid.length > 1 && vaccinated.length > 1
+    console.log(radioInputs)
+    
+    useEffect(() => {
+        thirdChange(valid)
+        if(valid){
+            window.localStorage.setItem('thirdPage', JSON.stringify(radioInputs))
+        }else{
+            window.localStorage.removeItem('thirdPage')
+        }
+    }, [valid, thirdChange, radioInputs])
+
+
+
 
     const submit = (e) => {
         e.preventDefault()
-
-console.log(document.querySelector('.dateVaccinated'))
-
     }
 
 
@@ -30,42 +51,42 @@ console.log(document.querySelector('.dateVaccinated'))
                     <div className="thirdPageDiv">
                         <p>how would you prefer wo work?</p>
                         <div>
-                            <input onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) }  type='radio' name='prefferToWork' value={'From Sairme office'} />
+                            <input  checked={radioInputs.work_preference === 'From Sairme office' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) }  type='radio' name='prefferToWork' value={'From Sairme office'} />
                             <label>From Sairme Offic</label>
                         </div>
                         <div>
-                            <input onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) } required type='radio' name='prefferToWork' value={'From Home'} />
+                            <input checked={radioInputs.work_preference === 'From Home' ? true : false}  onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) } required type='radio' name='prefferToWork' value={'From Home'} />
                             <label>From Home</label>
                         </div>
                         <div>
-                            <input onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) } required type='radio' name='prefferToWork' value={'Hybrid'} />
+                            <input checked={radioInputs.work_preference === 'Hybrid' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) } required type='radio' name='prefferToWork' value={'Hybrid'} />
                             <label>Hybrid</label>
                         </div>
                     </div>
                     <div className="thirdPageDiv">
                         <p>Did you contact covid 19? :(</p>
                             <div>
-                               <input onChange={({target}) => setRadioInputs({...radioInputs, had_covid: target.value})} required type='radio' name='covidContact' value={true} />
+                               <input checked={radioInputs.had_covid === 'true' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, had_covid: target.value})} required type='radio' name='covidContact' value={true} />
                                <label>Yes</label>   
                             </div>
                             <div>
-                                <input onChange={({target}) => setRadioInputs({...radioInputs, had_covid: target.value})} required type='radio' name='covidContact' value={''} />
+                                <input checked={radioInputs.had_covid === 'false' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, had_covid: target.value})} required type='radio' name='covidContact' value={false} />
                                 <label>No</label> 
                             </div>
                     </div>
                     <div className="thirdPageDiv">
                         <p>When?</p>
-                        {radioInputs.had_covid ? <input onChange={({target}) => setRadioInputs({...radioInputs,had_covid_at: target.value})}  type='date'/>
+                        {radioInputs.had_covid ? <input  onChange={({target}) => setRadioInputs({...radioInputs,had_covid_at: target.value})}  type='date'/>
                                                 : <input disabled type='date' />}
                     </div>
                     <div className="thirdPageDiv">
                         <p>Have you been vaccinated?</p>
                             <div>
-                              <input onChange={({target}) => setRadioInputs({...radioInputs, vaccinated: target.value})} required type='radio' name='haveVaccinated' value={true} />
+                              <input checked={radioInputs.vaccinated === 'true' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, vaccinated: target.value})} required type='radio' name='haveVaccinated' value={true} />
                               <label>Yes</label>  
                             </div>
                             <div>
-                               <input onChange={({target}) => setRadioInputs({...radioInputs, vaccinated: target.value})} required type='radio' name='haveVaccinated' value={''} />
+                               <input checked={radioInputs.vaccinated === 'true' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, vaccinated: target.value})} required type='radio' name='haveVaccinated' value={false} />
                                 <label>No</label> 
                             </div>
                     </div>
@@ -77,7 +98,7 @@ console.log(document.querySelector('.dateVaccinated'))
                     <button type='submit' style={{display: 'none'}}></button>
                     </form>
                     <div className='' >
-                        <LinkCircles current={3} />
+                        <LinkCircles current={3} valid={valid} />
                     </div>
                 </div>
                 <div className="infoDiv">
@@ -93,7 +114,18 @@ console.log(document.querySelector('.dateVaccinated'))
             </div>
         )
     }
+
+
+    const mapDispatchToProps = (dispatch) => {
+        return {
+            thirdChange: (data) => {
+                dispatch(thirdChange(data))
+            }
+        }
+    }
+
+
     
 
 
-    export default Third
+    export default connect(null, mapDispatchToProps)(Third)

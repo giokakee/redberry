@@ -1,24 +1,20 @@
 import './App.css';
 import { connect } from 'react-redux';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import OpeningPage from './pages/openingPage';
 import First from './pages/first';
 import Second from './pages/second';
 import Third from './pages/third';
 import Fourth from './pages/fourth';
 import Fifth from './pages/fifth';
-import Sixth from './pages/sixsth';
+import SubmitedApps from './pages/submitedAplications';
 
 
 
 
 const App = ({valid}) => {
-const location = useLocation()
 
 const {first, second, third, fourth}= valid
-
-console.log(first, second, location.pathname)
-
 
   return(
       <Routes>
@@ -32,10 +28,7 @@ console.log(first, second, location.pathname)
                : null}
         {first && second && third && fourth ? <Route path='/5' element={<Fifth />} />
                : null}
-        {/* <Route path='/3' element={<Third />} /> */}
-        {/* <Route path='/4' element={<Fourth />} /> */}
-        {/* <Route path='/5' element={<Fifth />} /> */}
-        <Route path='/6' element={<Sixth />} />
+        <Route path='/submitedAplications' element={<SubmitedApps />} /> 
       </Routes>
   )
 }

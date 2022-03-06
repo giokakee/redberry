@@ -1,30 +1,48 @@
+
+    let first = window.localStorage.getItem('firstPage');
+    let second = window.localStorage.getItem('secondPage');
+    let third = window.localStorage.getItem('thirdPage');
+    let fourth = window.localStorage.getItem('fourthPage');
+    let fifth = window.localStorage.getItem('fifthPage');
+
+
+
 let initialState = {
-    first: false,
-    second: false,
-    third: false,
-    fourth: false,
-    fifth: false
+    first: first ? true : false,
+    second: second ? true : false,
+    third: third  ? true : false,
+    fourth: fourth ? true : false,
+    fifth: fifth ? true : false
 }
+
+// let initialState = {
+//     first: first || false,
+//     second: second || false,
+//     third: third  || false,
+//     fourth: fourth || false,
+//     fifth: fifth || false
+// }
 
 const validReducer = (state = initialState, action) => {
     switch(action.type){
         case 'first':
+            console.log(action.data)
             return {...state, first: action.data }
         case 'second':
             return {...state, second: action.data}
         case 'third':
-            return {...state, first: action.data }
+            return {...state, third: action.data }
         case 'fourth':
-            return {...state, second: action.data}
+            return {...state, fourth: action.data}
         case 'fifth':
-            return {...state, first: action.data }
+            return {...state, fifth: action.data }
         default:
             return state
     }
 }
 
 
-export const firstChange = ({data}) => {
+export const firstChange = (data) => {
     return dispatch => {
         dispatch({
             type: 'first',
@@ -33,7 +51,7 @@ export const firstChange = ({data}) => {
     }
 }
 
-export const secondChange = ({data}) => {
+export const secondChange = (data) => {
     return dispatch => {
         dispatch({
             type: 'second',
@@ -41,7 +59,7 @@ export const secondChange = ({data}) => {
         })
     }
 }
-export const thirdChange = ({data}) => {
+export const thirdChange = (data) => {
     return dispatch => {
         dispatch({
             type: 'third',
@@ -49,7 +67,7 @@ export const thirdChange = ({data}) => {
         })
     }
 }
-export const fourthChange = ({data}) => {
+export const fourthChange = (data) => {
     return dispatch => {
         dispatch({
             type: 'fourth',
@@ -57,7 +75,7 @@ export const fourthChange = ({data}) => {
         })
     }
 }
-export const fifthChange = ({data}) => {
+export const fifthChange = (data) => {
     return dispatch => {
         dispatch({
             type: 'fifth',

@@ -13,6 +13,12 @@ const Second = ({initialSkills, addSkill, deleteSkill}) => {
         experience: ''
     })
 
+
+    useEffect(() => {
+        window.localStorage.setItem('secondPage', JSON.stringify(initialSkills))
+    }, [initialSkills])
+
+
     useEffect(() => {
         const getSkills = async() => {
             try{
@@ -22,9 +28,8 @@ const Second = ({initialSkills, addSkill, deleteSkill}) => {
                 console.log({message: err.message})
             }
         }
-        getSkills()
+        getSkills();
     }, [])
-
 
 
     const addSkillToList = () => {

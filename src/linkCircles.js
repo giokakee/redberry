@@ -21,7 +21,6 @@ let current = Number(location.pathname[1])
     }
 
 
-    console.log(valid)
 
     return(
         <div style={style}>
