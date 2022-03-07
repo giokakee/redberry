@@ -14,7 +14,7 @@ const navigate = useNavigate();
             <div className='startQuestions' onClick={() => navigate('/1')}>
                 <p>Start Questionnaire</p>
             </div>
-            <p style={{textDecoration: 'underline'}}>Submitted Applications</p>
+            <p onClick={() => navigate('/submitedAplications')} style={{textDecoration: 'underline', cursor: 'pointer'}}>Submitted Applications</p>
             <div className='cosmonaut'></div>
         </div>
     )

@@ -4,19 +4,34 @@ import { useEffect, useState } from 'react';
 import LinkCircles from '../linkCircles';
 import { connect } from 'react-redux';
 import { add, deleteSkill } from '../reducers/skillsReducer';
+import { secondChange } from '../reducers/validReducer';
 
 
-const Second = ({initialSkills, addSkill, deleteSkill}) => {
+const Second = ({initialSkills, addSkill, deleteSkill, secondChange}) => {
     let [skills, setSkills] = useState([])
     let [chosenSkills, setChosenSkills] = useState({
         title: '',
-        experience: ''
+        experience: '',
+        id: ''
     })
 
+    useEffect(() => {
+        let forStorage = initialSkills.map(mp => {
+            return {
+                experience: mp.experience, id: mp.id
+            }
+        } )
+        window.localStorage.setItem('secondPage', JSON.stringify(forStorage))
+    }, [initialSkills])
 
     useEffect(() => {
-        window.localStorage.setItem('secondPage', JSON.stringify(initialSkills))
-    }, [initialSkills])
+        console.log(initialSkills)
+        if(initialSkills.length > 0){
+            secondChange(true)
+        }else{
+            secondChange(false)
+        }
+    }, [initialSkills, secondChange])
 
 
     useEffect(() => {
@@ -34,9 +49,8 @@ const Second = ({initialSkills, addSkill, deleteSkill}) => {
 
     const addSkillToList = () => {
         let {title, experience} = chosenSkills
-        title.length && experience.length ? addSkill({data: chosenSkills}) : alert('Inputs are required')
+        title.length && experience.length && Number(experience) ? addSkill({data: chosenSkills}) : alert('Inputs are required, Experience should be written in numbers')
     }
-
        return(
             <div className="container">
                 <div className="formDiv">
@@ -44,15 +58,20 @@ const Second = ({initialSkills, addSkill, deleteSkill}) => {
                         <p>Tell us about your skills</p>
                     </div>
                     <div className="form">
-                        <select defaultValue={'skills'} onChange={({target}) => setChosenSkills({title: target.value, experience: chosenSkills.experience})}>
+                        <select
+                         defaultValue={'skills'}
+                          onChange={({target}) =>setChosenSkills({title: target.value, experience: chosenSkills.experience, id: target.options.selectedIndex})                        }>
                             <option  disabled value={'skills'}>skills</option>
                             {skills.map(skills => {
                                 return(
-                                        <option key={skills.id} value={skills.title}>{skills.title}</option>
+                                        <option key={skills.id} id={skills.id} value={skills.title}>{skills.title}</option>
                                         )
                                     })}
                             </select>
-                        <input onChange={({target}) => setChosenSkills({title: chosenSkills.title, experience: target.value})}  type='text' placeholder="Experience Duration in Years" />
+                        <input
+                         onChange={({target}) => setChosenSkills({title: chosenSkills.title, experience: target.value})}
+                           type='text'
+                            placeholder="Experience Duration in Years" />
                         <div className='buttonDiv'>
                             <button onClick={() => addSkillToList()}>Add Programming Language</button>
                         </div>
@@ -99,7 +118,10 @@ const Second = ({initialSkills, addSkill, deleteSkill}) => {
             },
             deleteSkill: (id) => {
                 dispatch(deleteSkill(id))
-            } 
+            },
+            secondChange: (data) => {
+                dispatch(secondChange(data))
+            }
         }
     }
     

@@ -64,7 +64,7 @@ const Third = ({fourthChange}) => {
                         <button type='submit' style={{display: 'none'}}></button>             
                     </form>
                     <div className='' >
-                       <LinkCircles current={4} />
+                       <LinkCircles current={4} valid={valid} />
                     </div>
                 </div>
                 <div className="infoDiv">

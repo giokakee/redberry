@@ -26,7 +26,6 @@ let initialState = {
 const validReducer = (state = initialState, action) => {
     switch(action.type){
         case 'first':
-            console.log(action.data)
             return {...state, first: action.data }
         case 'second':
             return {...state, second: action.data}

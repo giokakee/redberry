@@ -16,6 +16,8 @@ const App = ({valid}) => {
 
 const {first, second, third, fourth}= valid
 
+console.log(valid)
+
   return(
       <Routes>
         <Route path='/' element={<OpeningPage />} />

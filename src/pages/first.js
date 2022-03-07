@@ -1,7 +1,7 @@
 import '../style/first.css'
 import LinkCircles from '../linkCircles';
 import { useEffect, useState } from 'react';
-import { firstChange } from '../reducers/validReducer';
+import { firstChange, secondChange } from '../reducers/validReducer';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,9 +16,9 @@ const First = ({firstChange}) => {
     })
     
     let regexMail = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let regexMobile = /995/;
+    let regexMobile = /\d/;
     const valid = inputs.first_name.length > 2 && inputs.last_name.length > 2 && regexMobile.test(inputs.phone) && regexMail.test(inputs.email)
-    
+
     useEffect(() => {
     let initialInputs = window.localStorage.getItem('firstPage')
     if(initialInputs){
@@ -29,6 +29,7 @@ const First = ({firstChange}) => {
 
     useEffect(() => {
         firstChange(valid)
+        secondChange(valid)
         if(valid){
             window.localStorage.setItem('firstPage', JSON.stringify(inputs))
         }else{
@@ -47,7 +48,6 @@ const submit = (e) => {
     }else{
         window.localStorage.removeItem('firstPage')
     }
-    
 }
 
 
@@ -93,6 +93,9 @@ return(
         return {
             firstChange : (data) => {
                 dispatch(firstChange(data))
+            },
+            secondChange: (data) => {
+                dispatch(secondChange(data))
             }
         }
     }

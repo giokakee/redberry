@@ -22,7 +22,6 @@ const Third = ({thirdChange}) => {
     let {work_preference, had_covid, vaccinated} = radioInputs
     
     let valid = work_preference.length > 1 && had_covid.length > 1 && vaccinated.length > 1
-    console.log(radioInputs)
     
     useEffect(() => {
         thirdChange(valid)
@@ -32,8 +31,7 @@ const Third = ({thirdChange}) => {
             window.localStorage.removeItem('thirdPage')
         }
     }, [valid, thirdChange, radioInputs])
-
-
+    
 
 
     const submit = (e) => {
@@ -51,15 +49,15 @@ const Third = ({thirdChange}) => {
                     <div className="thirdPageDiv">
                         <p>how would you prefer wo work?</p>
                         <div>
-                            <input  checked={radioInputs.work_preference === 'From Sairme office' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) }  type='radio' name='prefferToWork' value={'From Sairme office'} />
+                            <input   onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) }  type='radio' name='prefferToWork' value={'from_home'} />
                             <label>From Sairme Offic</label>
                         </div>
                         <div>
-                            <input checked={radioInputs.work_preference === 'From Home' ? true : false}  onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) } required type='radio' name='prefferToWork' value={'From Home'} />
+                            <input  onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) } required type='radio' name='prefferToWork' value={'from_home'} />
                             <label>From Home</label>
                         </div>
                         <div>
-                            <input checked={radioInputs.work_preference === 'Hybrid' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) } required type='radio' name='prefferToWork' value={'Hybrid'} />
+                            <input  onChange={({target}) => setRadioInputs({...radioInputs, work_preference: target.value}) } required type='radio' name='prefferToWork' value={'from_home'} />
                             <label>Hybrid</label>
                         </div>
                     </div>
@@ -86,7 +84,7 @@ const Third = ({thirdChange}) => {
                               <label>Yes</label>  
                             </div>
                             <div>
-                               <input checked={radioInputs.vaccinated === 'true' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, vaccinated: target.value})} required type='radio' name='haveVaccinated' value={false} />
+                               <input checked={radioInputs.vaccinated === 'false' ? true : false} onChange={({target}) => setRadioInputs({...radioInputs, vaccinated: target.value})} required type='radio' name='haveVaccinated' value={false} />
                                 <label>No</label> 
                             </div>
                     </div>
