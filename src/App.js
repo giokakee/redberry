@@ -16,7 +16,7 @@ const App = ({valid}) => {
 
 const {first, second, third, fourth}= valid
 
-console.log(valid)
+// console.log(valid)
 
   return(
       <Routes>

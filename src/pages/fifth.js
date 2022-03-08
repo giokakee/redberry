@@ -1,17 +1,12 @@
-// import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers'
 import axios from 'axios'
-// import { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import '../style/submitPage.css'
 
 
 
-const Fifth = ({userInfo}) => {
+const Fifth = () => {
     const navigate = useNavigate()
-    // const [userInfo, setUserInfo] = useState([])
 
-console.log(userInfo)
 
 let first = JSON.parse(window.localStorage.getItem('firstPage'));
 let second = JSON.parse(window.localStorage.getItem('secondPage'));
@@ -22,16 +17,18 @@ let fourth = JSON.parse(window.localStorage.getItem('fourthPage'));
 second = second.map(mp => {
     return {...mp, experience: Number(mp.experience)}
 })
-third = {...third, vaccinated: Boolean(third.vaccinated)}
-third = {...third, had_covid: Boolean(third.had_covid)}
-fourth = {...fourth, will_organize_devtalk: Boolean(fourth.will_organize_devtalk)}
+
+third = {...third, had_covid: third.had_covid === 'true'}
+third = {...third, had_covid_at: third.had_covid ? third.had_covid_at : '2022-03-15'}
+third = {...third, vaccinated: third.vaccinated === 'true'}
+third = {...third, vaccinated_at: third.vaccinated ? third.vaccinated_at : '2022-03-15'}
+
+fourth = {...fourth, will_organize_devtalk: fourth.will_organize_devtalk === 'true'}
 
 let user = {token: '46126f59-8cda-4009-80dd-21ce2386f36a', ...first, ...{skills: second}, ...third, ...fourth}
 
-
   
 
-  console.log(user)
 
 const submit = async () => {
     try {
@@ -57,13 +54,5 @@ const submit = async () => {
     }
 
 
-const mapStateToProps = (state) => {
 
-    return {
-        userInfo:  'zimbabue'
-    }
-}
-    
-
-
-    export default connect(mapStateToProps)(Fifth)
+    export default Fifth

@@ -20,9 +20,15 @@ const Third = ({thirdChange}) => {
         }
     }, [])
     let {work_preference, had_covid, vaccinated} = radioInputs
+    let vaccineTimeIsValid = vaccinated === 'true' ? radioInputs.vaccinated_at.length > 1 : true
+    let hadCovidAtIsValid = had_covid === 'true' ? radioInputs.had_covid_at.length > 1 : true
+
     
-    let valid = work_preference.length > 1 && had_covid.length > 1 && vaccinated.length > 1
-    
+
+    let valid = work_preference.length > 1 && had_covid.length > 1 && vaccinated.length > 1 && vaccineTimeIsValid && hadCovidAtIsValid
+
+    console.log(valid)
+
     useEffect(() => {
         thirdChange(valid)
         if(valid){
@@ -37,7 +43,6 @@ const Third = ({thirdChange}) => {
     const submit = (e) => {
         e.preventDefault()
     }
-
 
         return(
             <div className="container">
@@ -74,7 +79,7 @@ const Third = ({thirdChange}) => {
                     </div>
                     <div className="thirdPageDiv">
                         <p>When?</p>
-                        {radioInputs.had_covid ? <input  onChange={({target}) => setRadioInputs({...radioInputs,had_covid_at: target.value})}  type='date'/>
+                        {radioInputs.had_covid === 'true' ? <input  onChange={({target}) => setRadioInputs({...radioInputs,had_covid_at: target.value})}  type='date'/>
                                                 : <input disabled type='date' />}
                     </div>
                     <div className="thirdPageDiv">
@@ -90,7 +95,7 @@ const Third = ({thirdChange}) => {
                     </div>
                     <div className="thirdPageDiv">
                         <p>When did you get your last covid vaccine?</p>
-                        {radioInputs.vaccinated   ? <input className='dateVaccinated' onChange={({target}) => setRadioInputs({...radioInputs, vaccinated_at: target.value}) }  type='date'/>
+                        {radioInputs.vaccinated   === 'true'   ? <input className='dateVaccinated' onChange={({target}) => setRadioInputs({...radioInputs, vaccinated_at: target.value}) }  type='date'/>
                                                   : <input disabled type='date' />}
                     </div>
                     <button type='submit' style={{display: 'none'}}></button>

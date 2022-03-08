@@ -64,15 +64,15 @@ const SubmitedPerson = ({personInfo, num}) => {
                         <p>How would you prefer to work</p>
                             <div>
                                 <div>
-                                    <input type='radio' disabled defaultChecked={personInfo.work_preference === 'from_sairme_office' ? true : false}  />
+                                    <input type='radio' disabled={true} defaultChecked={personInfo.work_preference === 'from_sairme_office' ? true : false}  />
                                     <label>From Sairme Office</label>
                                 </div>
                                 <div>
-                                    <input type='radio'   disabled defaultChecked={personInfo.work_preference === 'from_home' ? true : false} />
+                                    <input type='radio'   disabled={true} defaultChecked={personInfo.work_preference === 'from_home' ? true : false} />
                                     <label>From Home</label>
                                 </div>
                                 <div>
-                                    <input type='radio'  disabled  defaultChecked={personInfo.work_preference === 'hybrid' ? true : false}/>
+                                    <input type='radio'  disabled={true}  defaultChecked={personInfo.work_preference === 'hybrid' ? true : false}/>
                                     <label>Hybrid</label>
                                 </div>
                             </div>
@@ -80,52 +80,52 @@ const SubmitedPerson = ({personInfo, num}) => {
                         <p>Did you have covid 19?</p>
                         <div>
                             <div>
-                                 <input type='radio'  disabled defaultChecked={personInfo.had_covid  ? true : false}  />
+                                 <input type='radio'  disabled={true} defaultChecked={personInfo.had_covid  ? true : false}  />
                                  <label>Yes</label>
                              </div>
                               <div>
                                   
-                                 <input type='radio'  disabled defaultChecked={personInfo.work_preference ? false : true} />
+                                 <input type='radio'  disabled={true} defaultChecked={personInfo.work_preference ? false : true} />
                                  <label>No</label>
                               </div>
                         </div>
                         <p>When did you have covid 19</p>
                         {personInfo.had_covid ? 
-                        <input type='date' value={personInfo.had_covid_at}  disabled/> :
-                        <input type='date' disabbled />}
+                        <input type='date' value={personInfo.had_covid_at}  disabled={true}/> :
+                        <input type='date' disabbled={true} />}
                         <p>Have you been vaccinated</p>
                         <div>
                             <div>
-                                 <input type='radio'  disabled defaultChecked={personInfo.vaccinated  ? true : false}  />
+                                 <input type='radio'  disabled={true} defaultChecked={personInfo.vaccinated  ? true : false}  />
                                  <label>Yes</label>
                              </div>
                               <div>
                                   
-                                 <input type='radio'  disabled defaultChecked={personInfo.vaccinated ? false : true} />
+                                 <input type='radio'  disabled={true} defaultChecked={personInfo.vaccinated ? false : true} />
                                  <label>No</label>
                               </div>
                         </div>
                         <p>When have you get covid vaccine?</p>
                         {personInfo.vaccinated ? 
-                        <input type='date' value={personInfo.vaccinated_at}  disabled/> :
-                        <input type='date' disabbled />}
+                        <input type='date' value={personInfo.vaccinated_at}  disabled={true}/> :
+                        <input type='date' disabled={true} />}
                     </div>
                 </div>
                 <div className='appInfoDiv'>
                     <p className='appTitle'>Insights</p>
                     <p>would you attend Devtalks and maybe also organize your own</p>
                         <div>
-                           <input type='radio'  disabled defaultChecked={personInfo.will_organize_devtalk  ? true : false}  />
+                           <input type='radio'  disabled={true} defaultChecked={personInfo.will_organize_devtalk  ? true : false}  />
                            <label>Yes</label>
                          </div>
                           <div>                      
-                            <input type='radio'  disabled defaultChecked={personInfo.will_organize_devtalk ? false : true} />
+                            <input type='radio'  disabled={true} defaultChecked={personInfo.will_organize_devtalk ? false : true} />
                             <label>No</label>
                          </div>
                     <p>What would you speak about at Devtalk</p>
-                    <textarea disabled>{personInfo.devtalk_topic}</textarea>
+                    <textarea disabled={true} defaultValue={personInfo.devtalk_topic}></textarea>
                     <p>Tell us something special</p>
-                    <textarea disabled>{personInfo.something_special}</textarea>
+                    <textarea disabled={true} defaultValue={personInfo.something_special}></textarea>
                 </div>
             </div>
         </div>
