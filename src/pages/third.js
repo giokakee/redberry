@@ -27,7 +27,6 @@ const Third = ({thirdChange}) => {
 
     let valid = work_preference.length > 1 && had_covid.length > 1 && vaccinated.length > 1 && vaccineTimeIsValid && hadCovidAtIsValid
 
-    console.log(valid)
 
     useEffect(() => {
         thirdChange(valid)

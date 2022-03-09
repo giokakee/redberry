@@ -37,9 +37,9 @@
 }
 
 .show{
-    margin-bottom: 20px;
+    margin-bottom: 117px;
     width: 1154px;
-    height: 900px;
+    height: 1077px;
     background-color: #F05039;
     transition: 0.3s ease;
     list-style-type: decimal;
@@ -79,12 +79,14 @@
     display: none
 }
 .userInfo{
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     background-color: #ffffff;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 477px 589px;
     color: black;
+    justify-content: center;
+    padding-top: 43px;
 }
 .appTitle{
     color: #FE3B1F;
@@ -95,10 +97,17 @@
     line-height: 21px;
 }
 
+.divTitle{
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-top: 37px;
+    margin-bottom: 37px;
+}
+
 
 .appSkills{
     display: flex;
-    justify-content: space-between;
 }
 
 .appInfoDiv{
@@ -108,4 +117,10 @@
 .appInfoDiv span{
     margin-right: 45px;
 }
-
+.appInfoDiv input[type='date']{
+    width: 349px;
+}
+.appInfoDiv textarea{
+    width: 447px;
+   min-height: 153px; 
+}

@@ -47,11 +47,11 @@ const SubmitedPerson = ({personInfo, num}) => {
                 </div>
                 <div className='appInfoDiv'>
                     <p className='appTitle'>Skillset</p>
-                    <div className='appInfoDiv'>
+                    <div>
                         {chosenSkills.map(mp => {
                             return(
                                 <div key={mp.id} className='appSkills'>
-                                    <p>{mp.title}</p>
+                                    <p style={{marginRight: '35px'}}>{mp.title}</p>
                                     <p>Years of experience: {mp.experience}</p>
                                 </div>
                             )
@@ -60,8 +60,8 @@ const SubmitedPerson = ({personInfo, num}) => {
                 </div>
                 <div className='appInfoDiv'>
                     <p className='appTitle'>Covid Situation</p>
-                    <div className='appInfoDiv'>
-                        <p>How would you prefer to work</p>
+                    <div className='appInputsDiv'>
+                        <p className='divTitle'>How would you prefer to work?</p>
                             <div>
                                 <div>
                                     <input type='radio' disabled={true} defaultChecked={personInfo.work_preference === 'from_sairme_office' ? true : false}  />
@@ -77,7 +77,7 @@ const SubmitedPerson = ({personInfo, num}) => {
                                 </div>
                             </div>
 
-                        <p>Did you have covid 19?</p>
+                        <p className='divTitle'>Did you have covid 19?</p>
                         <div>
                             <div>
                                  <input type='radio'  disabled={true} defaultChecked={personInfo.had_covid  ? true : false}  />
@@ -89,10 +89,10 @@ const SubmitedPerson = ({personInfo, num}) => {
                                  <label>No</label>
                               </div>
                         </div>
-                        <p>When did you have covid 19</p>
+                        <p className='divTitle'>When did you have covid 19?</p>
                         {personInfo.had_covid ? 
                         <input type='date' value={personInfo.had_covid_at}  disabled={true}/> :
-                        <input type='date' disabbled={true} />}
+                        <input type='date' disabled={true} />}
                         <p>Have you been vaccinated</p>
                         <div>
                             <div>
@@ -105,7 +105,7 @@ const SubmitedPerson = ({personInfo, num}) => {
                                  <label>No</label>
                               </div>
                         </div>
-                        <p>When have you get covid vaccine?</p>
+                        <p className='divTitle'>When have you get covid vaccine?</p>
                         {personInfo.vaccinated ? 
                         <input type='date' value={personInfo.vaccinated_at}  disabled={true}/> :
                         <input type='date' disabled={true} />}
@@ -113,7 +113,7 @@ const SubmitedPerson = ({personInfo, num}) => {
                 </div>
                 <div className='appInfoDiv'>
                     <p className='appTitle'>Insights</p>
-                    <p>would you attend Devtalks and maybe also organize your own</p>
+                    <p className='divTitle'>would you attend Devtalks and maybe also organize your own?</p>
                         <div>
                            <input type='radio'  disabled={true} defaultChecked={personInfo.will_organize_devtalk  ? true : false}  />
                            <label>Yes</label>
@@ -122,10 +122,10 @@ const SubmitedPerson = ({personInfo, num}) => {
                             <input type='radio'  disabled={true} defaultChecked={personInfo.will_organize_devtalk ? false : true} />
                             <label>No</label>
                          </div>
-                    <p>What would you speak about at Devtalk</p>
-                    <textarea disabled={true} defaultValue={personInfo.devtalk_topic}></textarea>
-                    <p>Tell us something special</p>
-                    <textarea disabled={true} defaultValue={personInfo.something_special}></textarea>
+                    <p className='divTitle'>What would you speak about at Devtalk?</p>
+                    <textarea style={{resize: 'none'}} disabled={true} defaultValue={personInfo.devtalk_topic}></textarea>
+                    <p className='divTitle'>Tell us something special</p>
+                    <textarea style={{resize: 'none'}} disabled={true} defaultValue={personInfo.something_special}></textarea>
                 </div>
             </div>
         </div>

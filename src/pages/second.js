@@ -15,17 +15,17 @@ const Second = ({initialSkills, addSkill, deleteSkill, secondChange}) => {
         id: ''
     })
 
+
     useEffect(() => {
         let forStorage = initialSkills.map(mp => {
             return {
                 experience: mp.experience, id: mp.id
             }
-        } )
+        })
         window.localStorage.setItem('secondPage', JSON.stringify(forStorage))
     }, [initialSkills])
 
     useEffect(() => {
-        console.log(initialSkills)
         if(initialSkills.length > 0){
             secondChange(true)
         }else{
@@ -33,6 +33,7 @@ const Second = ({initialSkills, addSkill, deleteSkill, secondChange}) => {
         }
     }, [initialSkills, secondChange])
 
+    console.log(initialSkills)
 
     useEffect(() => {
         const getSkills = async() => {
@@ -51,9 +52,15 @@ const Second = ({initialSkills, addSkill, deleteSkill, secondChange}) => {
         let {title, experience} = chosenSkills
         title.length && experience.length && Number(experience) ? addSkill({data: chosenSkills}) : alert('Inputs are required, Experience should be written in numbers')
     }
+
+    const test = (e) => {
+        if(e.key === 'Enter'){
+            addSkillToList()
+        }
+    }
        return(
-            <div className="container">
-                <div className="formDiv">
+            <div className="container" onKeyPress={(e) => test(e)}>
+                <div className="formDiv" >
                     <div className="title">
                         <p>Tell us about your skills</p>
                     </div>

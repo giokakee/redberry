@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.72bc6935.css",
-    "main.js": "/static/js/main.96b86811.js",
+    "main.css": "/static/css/main.6dc14207.css",
+    "main.js": "/static/js/main.e5df786e.js",
     "static/js/787.9de5659f.chunk.js": "/static/js/787.9de5659f.chunk.js",
     "static/media/openingBackground.svg": "/static/media/openingBackground.5380e22d1634cf1cb527.svg",
     "static/media/cosmonaut.svg": "/static/media/cosmonaut.ef13fadbc1f3e53e03a3.svg",
+    "static/media/thanks.svg": "/static/media/thanks.eac25aab692032ad440c.svg",
     "static/media/welcomeRocketeer.svg": "/static/media/welcomeRocketeer.c5346ca7a2785a1833e7.svg",
     "index.html": "/index.html",
     "static/media/calendarPicker.svg": "/static/media/calendarPicker.8ea8831368f719b7bea7.svg",
@@ -12,12 +13,12 @@
     "static/media/arrow.svg": "/static/media/arrow.699e40b2eabc6cb824f0.svg",
     "static/media/submitArrow.svg": "/static/media/submitArrow.3d9fa52896f87ebcd992.svg",
     "static/media/startQuestions.svg": "/static/media/startQuestions.7845e2cb5319e33b1d00.svg",
-    "main.72bc6935.css.map": "/static/css/main.72bc6935.css.map",
-    "main.96b86811.js.map": "/static/js/main.96b86811.js.map",
+    "main.6dc14207.css.map": "/static/css/main.6dc14207.css.map",
+    "main.e5df786e.js.map": "/static/js/main.e5df786e.js.map",
     "787.9de5659f.chunk.js.map": "/static/js/787.9de5659f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.72bc6935.css",
-    "static/js/main.96b86811.js"
+    "static/css/main.6dc14207.css",
+    "static/js/main.e5df786e.js"
   ]
 }

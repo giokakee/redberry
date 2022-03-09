@@ -34,8 +34,11 @@ const submit = async () => {
     try {
     let data =  await axios.post('https://bootcamp-2022.devtest.ge/api/application', user)
     console.log(data)
-    window.localStorage.clear()
-    navigate('/')
+    navigate('/6')
+    setTimeout(() => {
+        navigate('/')
+        window.localStorage.clear()
+    }, 3000)
     }catch(err){
         console.log({
             message: err.message

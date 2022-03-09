@@ -7,6 +7,7 @@ import Second from './pages/second';
 import Third from './pages/third';
 import Fourth from './pages/fourth';
 import Fifth from './pages/fifth';
+import Sixth from './pages/sixsth';
 import SubmitedApps from './pages/submitedAplications';
 
 
@@ -29,6 +30,8 @@ const {first, second, third, fourth}= valid
         {first && second && third ? <Route path='/4' element={<Fourth />} />
                : null}
         {first && second && third && fourth ? <Route path='/5' element={<Fifth />} />
+               : null}
+        {first && second && third && fourth ? <Route path='/6' element={<Sixth />} />
                : null}
         <Route path='/submitedAplications' element={<SubmitedApps />} /> 
       </Routes>

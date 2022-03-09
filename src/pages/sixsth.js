@@ -1,11 +1,13 @@
+import '../style/sixth.css'
+
+
 
 const Sixth = () => {
 
-
     
     return(
-        <div>
-            <h1>Sixth</h1>
+        <div className='thanksMain'>
+            <div></div>
         </div>
     )
 }
