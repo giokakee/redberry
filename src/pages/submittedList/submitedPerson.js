@@ -85,7 +85,7 @@ const SubmitedPerson = ({personInfo, num}) => {
                              </div>
                               <div>
                                   
-                                 <input type='radio'  disabled={true} defaultChecked={personInfo.work_preference ? false : true} />
+                                 <input type='radio'  disabled={true} defaultChecked={personInfo.had_covid ? false : true} />
                                  <label>No</label>
                               </div>
                         </div>
