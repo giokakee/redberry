@@ -11,9 +11,12 @@ let skills = [
 
 
 let skillssFromStrage = window.localStorage.getItem('secondPage')
-skillssFromStrage = JSON.parse(skillssFromStrage).map(mp => {
-    return {...mp, title: skills.find(f => f.id === mp.id).title}
-})
+
+if(skillssFromStrage){
+    skillssFromStrage = JSON.parse(skillssFromStrage).map(mp => {
+        return {...mp, title: skills.find(f => f.id === mp.id).title}
+    })
+}
 
 let initialSkills = skillssFromStrage || [
     {title: 'HTML', experience: '2', id: 1},
